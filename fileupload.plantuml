@@ -2,9 +2,8 @@
 Browser -> "Multimedia API": Multipart upload
 "Multimedia API" -> Postgres: store metadata
 "Multimedia API" -> Minio: Multipart upload
-loop until upload done
-    Minio --> "Multimedia API": progress/status
-    "Multimedia API" --> Browser: progress/status
+Minio --> "Multimedia API": status
+"Multimedia API" --> Browser: status
 end
 "Multimedia API" -> Postgres: upload done (success or error)
 "Multimedia API" --> Browser: upload done (success or error)
