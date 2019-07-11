@@ -4,7 +4,6 @@ Browser -> "Multimedia API": Multipart upload
 "Multimedia API" -> Minio: Multipart upload
 Minio --> "Multimedia API": status
 "Multimedia API" --> Browser: status
-end
 "Multimedia API" -> Postgres: upload done (success or error)
 "Multimedia API" --> Browser: upload done (success or error)
 @enduml
