@@ -1,0 +1,27 @@
+@startuml
+node Minio
+node Keycloak
+
+component Browser {
+  rectangle React
+}
+
+rectangle "DINA Multimedia Module\nrunnable .jar" as multimedia_module {
+ rectangle "Spring"
+ rectangle "Keycloak Spring Integration"
+ rectangle "Minio Java Client"
+ rectangle "Hibernate or MyBatis"
+}
+
+database PostgreSQL {
+}
+
+storage "Storage File system" as Isilon{
+}
+
+Browser --> multimedia_module  : JSON API/Multipart
+multimedia_module --> PostgreSQL
+multimedia_module --> Keycloak
+multimedia_module --> Minio: API
+Minio --> Isilon: nfs
+@enduml
